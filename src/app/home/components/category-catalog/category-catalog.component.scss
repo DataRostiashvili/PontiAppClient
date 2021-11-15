@@ -1,0 +1,64 @@
+
+
+.chip_container
+{
+        position: relative;
+    
+         overflow: hidden;
+         scroll-behavior: smooth;
+        -ms-overflow-style: none;
+         scrollbar-width: none;
+    
+        &::-webkit-scrollbar {
+           display: none;
+        }
+        mat-chip-list {
+
+
+        mat-chip {
+            flex-wrap: wrap;
+            white-space: nowrap;
+            width: auto;
+        }
+        
+    
+        //overriding angular material style
+        .mat-chip-list-wrapper {
+            flex-wrap: nowrap !important;
+        }
+
+        
+    
+        
+        } 
+    
+        .paddles {
+            
+            
+
+        }
+
+        .paddle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        .left_paddle {
+            margin-left: 5px;
+            left: 0;
+            float:left;//:0;
+            transform: scale(2);
+            color:black;
+            padding: 5px;
+            align-content: center;
+        }
+
+        .right_paddle {
+            transform: scale(1.6);
+            
+            float: right;
+            right: 0;
+        }
+}
+
+

@@ -1,0 +1,76 @@
+.menu_button_container button
+{
+    position: fixed;
+    margin: 2.2rem;
+    background: none;
+    border:none;
+    z-index: 123;
+}
+
+
+
+$sideNavMenuMargin:  10px;
+
+mat-sidenav {
+    margin: $sideNavMenuMargin;
+    width: 310px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    border-radius: 12px;
+    margin: $sideNavMenuMargin;
+    margin-left: 32px;
+
+    display: block;
+
+    font-size: 2rem;
+    color: lightgray;
+
+    padding: 9px;
+}
+
+mat-sidenav-container {
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    border: none;
+
+    mat-icon {
+        margin-right: 8px;
+    }
+}
+
+
+
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*  */
+//facebook login button
+
+
+/* Shared */

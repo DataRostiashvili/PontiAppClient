@@ -1,0 +1,17 @@
+
+<div  class="chip_container">
+    <mat-chip-list (scroll)="onScroll($event)" #chipList [multiple]="true" [selectable]="true">
+        <mat-chip *ngFor="let category of blownCategoryNames" #chip="matChip" (click)="category.selected ? chip.deselect() : chip.selectViaInteraction()" [selected]="category.selected" [selectable]="true" (selectionChange)="changeSelected($event, category)">
+          {{category.name}}
+        </mat-chip>
+    </mat-chip-list>
+
+    <div class="paddles">
+        <div class="left_paddle paddle">    
+            <mat-icon [inline]="true">arrow_left</mat-icon>
+        </div>
+        <div class="right_paddle paddle">
+            <mat-icon [inline]="true">arrow_right</mat-icon>
+        </div>
+    </div>
+</div>

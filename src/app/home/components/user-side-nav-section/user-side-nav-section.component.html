@@ -1,0 +1,23 @@
+<app-side-nav-profile *ngIf="isUserSignedIn"></app-side-nav-profile>
+
+
+<ng-container *ngIf="!isUserSignedIn">
+   <button  (click)="login()" class="loginBtn loginBtn--facebook">
+      Login with Facebook
+   </button>
+   <mat-divider></mat-divider>
+</ng-container>
+
+
+<ng-container *ngIf="isUserSignedIn">
+   <ng-container>
+      <button class="button bookmarked_ponts" mat-raised-button>Bookmarked Ponts | <span> 12</span></button>
+      <button class="button hosting_ponts" mat-raised-button>Hosting Ponts | <span> 12</span></button>
+   </ng-container>
+
+   <ng-container>
+      <button (click)="logout()" class="button logout" mat-stroked-button color="warn">Log Out</button>
+   </ng-container>
+
+   <mat-divider></mat-divider>
+</ng-container>

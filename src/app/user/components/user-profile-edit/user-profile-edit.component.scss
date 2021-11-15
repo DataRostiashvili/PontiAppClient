@@ -1,0 +1,29 @@
+.container {
+
+  .profile_picture {
+    float: left;
+    z-index: 99;
+    position: relative;
+  }
+
+  .profile_info {
+    width: 235px;
+    display: flex;
+    flex-direction: column;
+
+
+    .field {
+      position: relative;
+      left: 10px;
+      margin: 17px;
+
+      font-size: small;
+
+      .save{
+        width: 100%;
+      }
+    }
+
+
+  }
+}
