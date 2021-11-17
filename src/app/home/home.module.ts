@@ -26,7 +26,7 @@ import { environment } from 'environments/environment';
 import { UserSideNavSectionComponent } from './components/user-side-nav-section/user-side-nav-section.component';
 import { UserModule } from 'app/user/user.module';
 import {RouterModule} from "@angular/router";
-import { HostViewComponent } from './host-view/host-view.component';
+import { HostViewComponent } from './components/host-view/host-view.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 

@@ -4,8 +4,15 @@ import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  template: `
+    <app-search-bar></app-search-bar>
+    <app-tab-group></app-tab-group>
+  `,
+  styles: [
+    `
+
+    `
+  ]
 })
 export class HomePageComponent implements OnInit {
 

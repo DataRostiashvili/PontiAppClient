@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RegexHelpers} from '@core/heloers/regex-helpers';
 import {HostDTO} from '@core/models/DTO/HostDTO';
 import {HostService} from '@core/services/host.service';
+import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
 
 @Component({
   selector: 'app-host-view',
@@ -54,9 +55,12 @@ import {HostService} from '@core/services/host.service';
           </div>
         </div>
       </div>
-
-
+      <div class="event_place_container">
+        <app-tab-group [filter]="searchFilter"></app-tab-group>
+      </div>
     </div>
+
+
   `,
   styles: [
     `
@@ -112,6 +116,7 @@ import {HostService} from '@core/services/host.service';
 export class HostViewComponent {
   public host: HostDTO | undefined;
   private hostId: string = '';
+  private searchFilter = new SearchFilter();
 
   public rating: number = 0;
 
@@ -128,6 +133,8 @@ export class HostViewComponent {
     hostService.getHost(hostId ?? '').subscribe((host) => {
       this.host = host;
     });
+
+    this.searchFilter = new SearchFilter('',TimeOption.upcoming, [], hostId ?? '')
 
     this.calculateRating();
 

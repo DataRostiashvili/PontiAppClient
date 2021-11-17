@@ -17,10 +17,11 @@ export class HostService {
   public getHost(hostId: string): Observable<HostDTO> {
     let image = 'https://image.freepik.com/free-photo/closeup-shot-lion-s-face-isolated-dark_181624-35975.jpg';
 
-    let res  = new HostDTO('data ', 'rostiashvili', image, 'd4v1t.r0st@gmail.com', '555966179', 'აღმაშენებლის 168', 4, 200, true, '1c8d9db4-d982-4cbb-a05e-59f89e09a6be' );
+    // let res  = new HostDTO('data ', 'rostiashvili', image, 'd4v1t.r0st@gmail.com', '555966179', 'აღმაშენებლის 168', 4, 200, true, '1c8d9db4-d982-4cbb-a05e-59f89e09a6be' );
 
-    return of(res);
-    return this.http.get<HostDTO>(`${environment.apiUrl}/User/${hostId}`);
+    //return of(res);
+    //https://localhost:5001/api/User/GetUser?FbId=123
+    return this.http.get<HostDTO>(`${environment.apiUrl}/User/GetUser?FbId=${hostId}`);
   }
 
   public giveReview(hostId: string, review: number){

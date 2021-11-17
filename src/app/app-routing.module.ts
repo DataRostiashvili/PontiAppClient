@@ -5,7 +5,7 @@ import {HomePageComponent} from 'app/home/components/home-page/home-page.compone
 // import {UserProfileEditComponent} from '@user/components/user-profile-edit/user-profile-edit.component';
 import {UserProfileEditComponent} from "./user/components/user-profile-edit/user-profile-edit.component";
 // import {PlaceEventComponent} from "@user/components/place-event/place-event.component";
-import {HostViewComponent} from "./home/host-view/host-view.component";
+import {HostViewComponent} from "./home/components/host-view/host-view.component";
 import {PlaceEventComponent} from "./user/components/place-event/place-event.component";
 
 const routes: Routes = [

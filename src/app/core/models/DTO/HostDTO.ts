@@ -1,10 +1,12 @@
 export class HostDTO {
 
-  constructor(public name: string,
+  constructor(
+    public fbId: string,
+    public name: string,
     public surname: string,
     public pictureUri: string,
     public mail: string,
-    
+
     public phoneNumber: string,
     public address: string,
     public averageRanking: number,
