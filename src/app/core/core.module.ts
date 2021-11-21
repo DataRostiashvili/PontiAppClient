@@ -7,7 +7,7 @@ import { HomeModule } from 'app/home/home.module';
   declarations: [],
   imports: [
     CommonModule,
-    HomeModule
+    HomeModule,
   ],
   exports: [
     HomeModule

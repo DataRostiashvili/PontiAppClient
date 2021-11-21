@@ -7,7 +7,7 @@ export class TrimTextPipe implements PipeTransform {
 
   transform(value: string | undefined, characterLimit: number): string| undefined{
     let res =  value?.substring(0, characterLimit);
-    if(value!.length > characterLimit)
+    if(value?.length ?? 0 > characterLimit)
     {
       res?.concat('...');
     }

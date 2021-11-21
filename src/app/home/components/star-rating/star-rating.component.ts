@@ -13,9 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     <mat-error *ngIf="starCount === null || starCount === 0">
       Star count is <strong>required</strong> and cannot be zero
     </mat-error>
-    <p class="body-2">
-      Your rated <span class="body-2">{{rating}}</span> / <span class="body-2">{{starCount}}</span>
-    </p>
   `,
   styles: [
     `

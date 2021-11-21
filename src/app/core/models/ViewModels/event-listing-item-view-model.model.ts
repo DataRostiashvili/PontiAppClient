@@ -7,6 +7,6 @@ export class EventViewModel
     name?: string;
     startTime?: Date;
     host?: HostViewModel;
-    address?: AddressViewModel;
+    address?: string;
     isFavourite?: boolean;
 }

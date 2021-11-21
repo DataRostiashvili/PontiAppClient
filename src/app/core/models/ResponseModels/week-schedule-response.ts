@@ -1,7 +1,11 @@
 import {WeekDay} from "@angular/common";
 
 export class WeekScheduleResponse {
-  constructor(start: Date, end: Date, day: WeekDay, isWorking: boolean, placeEntityId: number) {
+  constructor(public start: Date,
+              public end: Date,
+              public day: WeekDay,
+              public isWorking: boolean,
+              public placeEntityId: number) {
 
   }
 

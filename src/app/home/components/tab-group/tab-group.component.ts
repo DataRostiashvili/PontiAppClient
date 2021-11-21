@@ -5,6 +5,7 @@ import { DataSeederService } from '@core/services/data-seeder.service';
 import {SearchFilter} from "@core/models/util/search-filter";
 @Component({
   selector: 'app-tab-group',
+
   template: `
     <mat-tab-group [disablePagination]="true" mat-align-tabs="center">
       <mat-tab label="Events"><app-events-grid-list [filter]="filter"></app-events-grid-list></mat-tab>
@@ -21,16 +22,15 @@ export class TabGroupComponent implements OnInit {
 
   @Input() public filter: SearchFilter = new SearchFilter();
 
-  public placeListingItems: PlaceViewModel[] = [];
-  public eventListingItems: EventViewModel[] = [];
 
 
-  constructor(private dataSeeder: DataSeederService) {
-    this.placeListingItems = dataSeeder.PlaceListingItems;
-    this.eventListingItems = dataSeeder.eventListingItems;
+  constructor() {
+
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+
   }
 
 }

@@ -1,11 +1,7 @@
-export interface HostViewModel 
+export interface HostViewModel
 {
     name: string;
-    profilePicture: ProfilePictureViewModel;
-    
+    profilePictureUri: string;
+
 }
 
-export interface ProfilePictureViewModel
-{
-    uri: string;
-}

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,NgZone} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RegexHelpers} from '@core/heloers/regex-helpers';
 import {HostDTO} from '@core/models/DTO/HostDTO';
@@ -16,43 +16,39 @@ import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
             <mat-icon>badge</mat-icon>
             {{host?.name}} {{host?.surname}}
           </div>
-
           <div class="field label">
-            <mat-icon>title</mat-icon>
-
-            <app-star-rating [rating]="rating"
-                             [starCount]="5" (ratingUpdated)="onRatingChanged($event)"></app-star-rating>
-
-            {{host?.averageRanking}}</div>
-          <div class="field label">
-            <mat-icon>title</mat-icon>
-            {{host?.totalReviewerCount}}
+            <mat-icon>location_on</mat-icon>
+            {{host?.address}}
           </div>
 
         </div>
 
         <div class="additional_info">
           <div class="field label">
-            <mat-icon>title</mat-icon>
+            <mat-icon>mail</mat-icon>
             {{host?.mail}}
           </div>
 
           <div class="field label">
-            <mat-icon>title</mat-icon>
+            <mat-icon>phone</mat-icon>
             {{host?.phoneNumber}}
           </div>
 
-
-          <div class="field label">
-            <mat-icon>title</mat-icon>
-            {{host?.address}}
-          </div>
-
-
           <div cl.ass="field label">
-            <mat-icon>title</mat-icon>
+            <mat-icon>verified</mat-icon>
             {{host?.isVerfiedUser}}
           </div>
+        </div>
+      </div>
+      <div class="review_container">
+        <div>
+
+          <app-star-rating [rating]="rating"
+                           [starCount]="5" (ratingUpdated)="onRatingChanged($event)"></app-star-rating>
+
+        </div>
+        <div class="review_count">
+          {{host?.totalReviewerCount}}
         </div>
       </div>
       <div class="event_place_container">
@@ -64,6 +60,18 @@ import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
   `,
   styles: [
     `
+      .review_container{
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        vertical-align: center;
+        align-items: center;
+        justify-content: center;
+
+        .review_count{
+          margin-left: 15px;
+        }
+      }
       .mat-icon {
         vertical-align: center;
       }
@@ -71,7 +79,14 @@ import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
       .info_container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        margin: auto;
+
+        .basic_info{
+          margin-right: 25px;
+        }
+        .additional_info {
+          margin-left: 25px;
+        }
 
       }
 
@@ -80,9 +95,7 @@ import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
         flex-direction: column;
       }
 
-      .additional_info {
 
-      }
 
       .label {
       }
@@ -116,7 +129,7 @@ import {SearchFilter, TimeOption} from "@core/models/util/search-filter";
 export class HostViewComponent {
   public host: HostDTO | undefined;
   private hostId: string = '';
-  private searchFilter = new SearchFilter();
+  public searchFilter = new SearchFilter();
 
   public rating: number = 0;
 
@@ -124,17 +137,23 @@ export class HostViewComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private hostService: HostService
+    private hostService: HostService,
+    private zone: NgZone
   ) {
+
     let hostId = this.route.snapshot.paramMap.get('hostId');
     if (!hostId || !RegexHelpers.IsOnlyDigits(hostId)) router.navigate(['/']);
     else this.hostId = hostId;
 
     hostService.getHost(hostId ?? '').subscribe((host) => {
-      this.host = host;
+      zone.run(()=> {
+
+        this.host = host;
+      })
+      console.log('host is ' + this.host);
     });
 
-    this.searchFilter = new SearchFilter('',TimeOption.upcoming, [], hostId ?? '')
+    this.searchFilter = new SearchFilter( '',TimeOption.upcoming, [], hostId ?? '')
 
     this.calculateRating();
 
