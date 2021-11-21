@@ -23,7 +23,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     CoreModule
   ],
   providers: [
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS}, 
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService
     // {provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService]},
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

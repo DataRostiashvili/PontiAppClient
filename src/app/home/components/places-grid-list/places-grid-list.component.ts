@@ -44,14 +44,16 @@ export class PlacesGridListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.isFilterForHomePage());
+
     if(this.isFilterForHomePage()){
-      this.eventPlaceService.getPlacesByHost(this.filter.hostId).subscribe(briefPlaces => {
+      this.eventPlaceService.getALlPlace().subscribe(briefPlaces => {
         this.zone.run(() => {
           this.Items = this.mapApiResponseToViewModels(briefPlaces)
         })
       })
     }
-    if (this.filter.hostId) {
+    else if (this.filter.hostId) {
       this.eventPlaceService.getPlacesByHost(this.filter.hostId).subscribe(briefPlaces => {
         this.zone.run(() => {
           this.Items = this.mapApiResponseToViewModels(briefPlaces)

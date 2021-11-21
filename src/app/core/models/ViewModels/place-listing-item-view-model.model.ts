@@ -8,6 +8,6 @@ export class PlaceViewModel
     startTime?: Date;
     endTime?: Date;
     host?: HostViewModel;
-    address?: AddressViewModel;
+    address?: string;
     isFavourite?: boolean;
 }
