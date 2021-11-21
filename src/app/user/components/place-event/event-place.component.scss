@@ -1,0 +1,48 @@
+
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+
+    form .field {
+      font-size: small;
+    }
+
+    .contact_bar {
+      font-size: medium;
+      vertical-align: center;
+      display: flex;
+      flex-direction: row;
+      margin: 10px 0px;
+    }
+
+    .schedule_bar {
+      font-size: medium;
+      vertical-align: center;
+      display: flex;
+      flex-direction: row;
+      margin: 10px 0px;
+    }
+
+    .week_schedule_container {
+      display: flex;
+      flex-direction: column;
+      width: 650px;
+    }
+
+    .week_schedule {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .week_schedule > * {
+      margin: 5px;
+
+      &:first-child {
+        margin-left: 0px;
+        margin-right: auto;
+      }
+    }

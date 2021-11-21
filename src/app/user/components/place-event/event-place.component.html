@@ -1,0 +1,464 @@
+
+    <form>
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>title</mat-icon>
+
+        <mat-label>დასახელება</mat-label>
+        <input type="text" matInput [formControl]="$any(formGroup).get('name')" [errorStateMatcher]="matcher"
+               placeholder="მაგ. საცეკვაო საღამო">
+
+
+        <mat-error *ngIf="$any(formGroup).get('name').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>description</mat-icon>
+
+
+        <mat-label>აღწერა</mat-label>
+        <textarea matInput placeholder="მაგ. როგორი ტიპის გართობა იქნება..."></textarea>
+      </mat-form-field>
+
+      <ng-container *ngIf="isEvent">
+
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>დაწყების დრო</mat-label>
+
+          <input matInput type="datetime-local" [formControl]="$any(formGroup).get('startDate')"
+                 [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+          <mat-error *ngIf="$any(formGroup).get('startDate').hasError('required')">
+            ეს ველი <strong>საჭიროა</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>დასრულების დრო</mat-label>
+
+          <input matInput type="datetime-local" [formControl]="$any(formGroup).get('endDate')"
+                 [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+          <mat-error *ngIf="$any(formGroup).get('endDate').hasError('required')">
+            ეს ველი <strong>საჭიროა</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </ng-container>
+
+
+      <ng-container *ngIf="!isEvent">
+        <div class="schedule_bar">
+          <mat-icon matSuffix>schedule</mat-icon>
+          <span>განრიგი</span>
+        </div>
+
+        <div class="field">
+          <div class="week_schedule_container">
+            <div class="week_schedule">
+              <mat-label>ორშაბათი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>სამშაბათი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>ოთხშაბათი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>ხუთშაბათი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>პარასკევი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>შაბათი</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+            <div class="week_schedule">
+              <mat-label>კვირა</mat-label>
+              <mat-form-field appearance="fill">
+                <mat-label>დაწყების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('start')"
+                       [errorStateMatcher]="matcher" placeholder="დაწყების დრო">
+
+
+                <mat-error
+                  *ngIf="$any(formGroup).get('weekSchedule').get('monday').get('start').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>დასრულების დრო</mat-label>
+
+                <input matInput type="datetime-local"
+                       [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('end')"
+                       [errorStateMatcher]="matcher" placeholder="დასრულების დრო">
+
+
+                <mat-error *ngIf=" $any(formGroup).get('weekSchedule').get('monday').get('end').hasError('required')">
+                  ეს ველი <strong>საჭიროა</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-checkbox #mondayCheckbox
+                            [formControl]="$any(formGroup).get('weekSchedule').get('monday').get('notWorking')">
+                არ მუშაობს
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <mat-form-field class="field" appearance="fill" floatLabel="always">
+        <mat-label>ფასი</mat-label>
+        <input matInput type="number" placeholder="0">
+        <span matPrefix>₾&nbsp;</span>
+        <span matSuffix>.00</span>
+
+        <mat-error *ngIf="$any(formGroup).get('endDate').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>place</mat-icon>
+
+        <mat-label>მისამართი</mat-label>
+        <input type="text" matInput [formControl]="$any(formGroup).get('address')" [errorStateMatcher]="matcher"
+               placeholder="ბარნოვის 3.ა">
+
+        <mat-error *ngIf="$any(formGroup).get('address').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <ng-container *ngIf="isEvent">
+        <div class="contact_bar">
+          <mat-icon matSuffix>edit_location</mat-icon>
+          <span>დაამატე ადგილები</span>
+        </div>
+
+
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>ადგილები</mat-label>
+          <mat-select [disabled]="disableRelatedPlces" disableRipple>
+            <mat-option *ngFor="let v of  $any(formGroup).get('relatedPlaces').value" value="v">
+              {{v['name']}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <!--              categories-->
+      <!--      <ng-container>-->
+      <!--        <mat-form-field class="field" appearance="fill">-->
+      <!--          <mat-label>აირჩიე კატეგორიები</mat-label>-->
+      <!--          <mat-chip-list #chipList aria-label="Fruit selection">-->
+      <!--            <mat-chip-->
+      <!--                  *ngFor="let category of cat_filteredCategory"-->
+      <!--              [selectable]="true"-->
+      <!--              [removable]="true"-->
+      <!--              (removed)="removeCategory(category)">-->
+      <!--              {{category}}-->
+      <!--              <button matChipRemove>-->
+      <!--                <mat-icon>cancel</mat-icon>-->
+      <!--              </button>-->
+      <!--            </mat-chip>-->
+      <!--            <input-->
+      <!--              placeholder="სხვა კატეგორია..."-->
+      <!--              #fruitInput-->
+      <!--              [formControl]="$any(formGroup).get('category')"-->
+      <!--              [matAutocomplete]="auto"-->
+      <!--              [matChipInputFor]="chipList"-->
+      <!--              [matChipInputSeparatorKeyCodes]="cat_separatorKeysCodes"-->
+      <!--              (matChipInputTokenEnd)="addCategory($event)">-->
+      <!--          </mat-chip-list>-->
+      <!--          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedCategory($event)">-->
+      <!--            <mat-option *ngFor="let fruit of cat_filteredCategory " [value]="fruit">-->
+      <!--              {{fruit}}-->
+      <!--            </mat-option>-->
+      <!--          </mat-autocomplete>-->
+      <!--        </mat-form-field>-->
+
+      <!--      </ng-container>-->
+
+      <ng-container>
+        <mat-form-field class="example-chip-list" appearance="fill">
+          <mat-label>Favorite Fruits</mat-label>
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip
+              *ngFor="let fruit of fruits"
+              [selectable]="true"
+              [removable]="true"
+              (removed)="removeCategory(fruit)"
+            >
+              {{fruit}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="New fruit..."
+              #fruitInput
+              [formControl]="$any(formGroup).get('category')"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addCategory($event)"
+            />
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedCategory($event)">
+            <mat-option *ngFor="let fruit of filteredFruits" [value]="fruit">
+              {{fruit}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </ng-container>
+
+      <!--      ////Contact Section-->
+      <div class="contact_bar">
+        <mat-icon matSuffix>contacts</mat-icon>
+        <span>კონტაქტი</span>
+      </div>
+
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>phone</mat-icon>
+
+        <mat-label>ტელეფონი</mat-label>
+        <input type="text" matInput [formControl]="$any(formGroup).get('phone')" [errorStateMatcher]="matcher"
+               placeholder="555-666-777">
+
+
+        <mat-error *ngIf="$any(formGroup).get('phone').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>email</mat-icon>
+
+        <mat-label>იმეილი</mat-label>
+        <input type="email" matInput [formControl]="$any(formGroup).get('email')" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+
+        <mat-error *ngIf="$any(formGroup).get('email').hasError('email')
+            && !$any(formGroup).get('email').hasError('email').hasError('required')">
+          გთხოვთ შეიყვანეთ ვალიდური იმეილი
+        </mat-error>
+        <mat-error *ngIf="$any(formGroup).get('email').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-icon matSuffix>website</mat-icon>
+
+        <mat-label>ვებსაიტი</mat-label>
+        <input type="text" matInput [formControl]="$any(formGroup).get('webSite')" [errorStateMatcher]="matcher"
+               placeholder="https://xatchapuri.ge">
+
+
+        <mat-error *ngIf="$any(formGroup).get('webSite').hasError('required')">
+          ეს ველი <strong>საჭიროა</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button (click)="submitForm($event)" type="submit" class="field" mat-raised-button color="primary">Submit
+      </button>
+
+    </form>
+

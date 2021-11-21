@@ -1,0 +1,35 @@
+
+    <div class="tile_container">
+
+      <div class="background_image">
+        <div class="tile_item title">
+          {{eventListingItem?.name}}
+        </div>
+        <div class="additional_info">
+
+
+          <div class="tile_item date">
+            <mat-icon>date_range</mat-icon>
+            {{eventListingItem?.startTime  | date: 'MMM dd hh:mm' }}
+          </div>
+          <div class="tile_item host">
+            <picture>
+              <img src="{{eventListingItem?.host?.profilePictureUri}}" alt="" />
+            </picture>
+            {{eventListingItem?.host?.name | trimText:13}}
+          </div>
+          <div class="tile_item address">
+            <mat-icon>location_on</mat-icon>
+            <span>{{eventListingItem?.address | trimText:20}}</span>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="tile_item favourite">
+        <img *ngIf="eventListingItem?.isFavourite" src='assets/icons/red-heart-icon.png' />
+        <img *ngIf="!eventListingItem?.isFavourite" src='assets/icons/white-heart-icon.png' />
+      </div>
+
+    </div>
+

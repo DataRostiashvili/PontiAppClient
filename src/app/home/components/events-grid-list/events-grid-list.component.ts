@@ -28,7 +28,6 @@ import {Observable} from "rxjs";
       }
 
       .grid_tile {
-        // margin: 100px;
         display: flex;
         width: 100%;
         height: 100%;
