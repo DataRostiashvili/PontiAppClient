@@ -1,0 +1,7 @@
+<mat-tab-group [disablePagination]="true" mat-align-tabs="center">
+  <!-- <mat-tab label="Events"><app-events-grid-list [filter]="filter"></app-events-grid-list></mat-tab>
+  <mat-tab label="Places"><app-places-grid-list [filter]="filter"></app-places-grid-list></mat-tab> -->
+
+  <mat-tab label="Events"><app-grid-list [type]="eventType" [filter]="filter"></app-grid-list></mat-tab>
+  <mat-tab label="Places"><app-grid-list [type]="placeType" [filter]="filter"></app-grid-list></mat-tab>
+</mat-tab-group>

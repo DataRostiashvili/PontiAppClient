@@ -6,7 +6,7 @@ import {HomePageComponent} from 'app/home/components/home-page/home-page.compone
 import {UserProfileEditComponent} from "./user/components/user-profile-edit/user-profile-edit.component";
 // import {PlaceEventComponent} from "@user/components/place-event/place-event.component";
 import {HostViewComponent} from "./home/components/host-view/host-view.component";
-import {PlaceEventComponent} from "./user/components/place-event/place-event.component";
+import { EventPlaceComponent } from './user/components/place-event/event-place.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -19,19 +19,19 @@ const routes: Routes = [
   {path: 'account/editProfile', component: UserProfileEditComponent},
   {
     path: 'account/PlaceEvent/:createEdit/:placeEvent/:idToEdit',
-    component: PlaceEventComponent
+    component: EventPlaceComponent
   },
   {
     path: 'account/PlaceEvent/:createEdit/:placeEvent',
-    component: PlaceEventComponent
+    component: EventPlaceComponent
   },
   {
     path: 'account/PlaceEvent/:createEdit',
-    component: PlaceEventComponent
+    component: EventPlaceComponent
   },
   {
     path: 'account/PlaceEvent',
-    component: PlaceEventComponent
+    component: EventPlaceComponent
   }
 
 ];

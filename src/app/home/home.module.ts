@@ -1,7 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EventsGridListComponent } from 'app/home/components/events-grid-list/events-grid-list.component';
 import { NavigationComponent } from 'app/home/components/navigation/navigation.component';
 import { SideNavProfileComponent } from 'app/home/components/side-nav-profile/side-nav-profile.component';
 import { TabGroupComponent } from 'app/home/components/tab-group/tab-group.component';
@@ -11,9 +10,6 @@ import { ResponsiveColsDirective } from 'app/home/directives/responsive-cols.dir
 import { HomePageComponent } from './components/home-page/home-page.component';
 
 import { MaterialModule } from '@modules/material/material.module';
-import { PlacesGridListComponent } from './components/places-grid-list/places-grid-list.component';
-import { EventGridTileComponent } from './components/event-grid-tile/event-grid-tile.component';
-import { PlaceGridTileComponent } from './components/place-grid-tile/place-grid-tile.component';
 
 import { TrimTextPipe } from '../core/pipes/trim-text.pipe';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -28,21 +24,20 @@ import { UserModule } from 'app/user/user.module';
 import {RouterModule} from "@angular/router";
 import { HostViewComponent } from './components/host-view/host-view.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { GridTileComponent } from './components/grid-tile/grid-tile.component';
+import { GridListComponent } from './components/grid-list/grid-list.component';
+import { EventPlaceViewComponent } from './components/event-place-view/event-place-view.component';
 
 
 
 @NgModule({
   declarations: [
-    EventsGridListComponent,
-    PlacesGridListComponent,
     NavigationComponent,
     SideNavProfileComponent,
     TabGroupComponent,
     DisplayInfoIfHoveredDirective,
     ResponsiveColsDirective,
     HomePageComponent,
-    EventGridTileComponent,
-    PlaceGridTileComponent,
     TrimTextPipe,
     SearchBarComponent,
     CategoryCatalogComponent,
@@ -51,6 +46,9 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     UserSideNavSectionComponent,
     HostViewComponent,
     StarRatingComponent,
+    GridTileComponent,
+    GridListComponent,
+    EventPlaceViewComponent,
   ],
     imports: [
         CommonModule,
@@ -59,8 +57,6 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
         RouterModule
     ],
   exports: [
-    EventsGridListComponent,
-    PlacesGridListComponent,
     NavigationComponent,
     SideNavProfileComponent,
     TabGroupComponent,
